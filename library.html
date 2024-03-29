@@ -71,16 +71,16 @@
     <h1 class="title">AFTAC TRAINING</h1>
     <p class="p1">Standard Operation Procedures Links</p>
     <p class="p2">Click the icons on the right to display the links</p>
-    <div class="myt pill" id="myt_pill" onclick="upgradeClicked">
+    <div class="upgrade-pill myt_pill" id="myt_pill" onclick="upgradeClicked('mytGroup')">
         <h2>MyTraining</h2>
     </div>
-    <div class="upgrade pill" id="upgrade_pill" onclick="upgradeClicked">
+    <div class="upgrade-pill upgrade_pill" id="upgrade_pill" onclick="upgradeClicked('ugtGroup')">
         <h2>Upgrade Training</h2>
     </div>
-    <div class="tfat pill" id="tfat_pill" onclick="upgradeClicked">
+    <div class="upgrade-pill tfat_pill" id="tfat_pill" onclick="upgradeClicked('tfatGroup')">
         <h2>Total Force Awareness Training</h2>
     </div>
-    <div class="frml pill" id="frml_pill" onclick="upgradeClicked">
+    <div class="upgrade-pill frml_pill" id="frml_pill" onclick="upgradeClicked('frmlGroup')">
         <h2>Formal Training</h2>
     </div>
     <svg class="svgGroup ugtGroup" viewBox="0 0 146 145" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="upgradeClicked('ugtGroup')">
@@ -183,12 +183,6 @@ h1{
     width:275px;
     text-align:center;
 }
-.upgrade_group{
-    cursor:pointer;
-    transform-origin: center;
-    z-index:10;
-    position:relative;
-}
 
 .pill{
     background-color: white;
@@ -197,7 +191,7 @@ h1{
     width:384px;
     text-align:center;
     border-radius:40.5px;
-    font-size: 25px;
+    font-size: 21px;
     color: #D5D5D5;
     position:absolute;
     font-family:'lato';
@@ -209,14 +203,15 @@ h1{
 h2{
     position:relative;
     margin-left:40px;
+    width:75%;
 }
 #myt_pill{
     background-image: linear-gradient(to bottom right, #FFB347 40%, #FFDAB9 100%);
     position: absolute;
-    top:56.64px;
-    left:706.56px;
+    top:62.64px;
+    left:673.56px;
     z-index:2;
-    width:384px;
+    width:0;
     height:81px;
     transition: all 0.3s ease-in-out;
     overflow:hidden;
@@ -229,10 +224,10 @@ h2{
 #upgrade_pill{
     background-image: linear-gradient(to bottom right, #D2691E 40%, #FFB36D 100%);
     position: absolute;
-    top:240.5px;
-    left:781.44px;
+    top:238.5px;
+    left:815.44px;
     z-index:2;
-    width:384px;
+    width:0;
     height:81px;
     transition: all 0.3s ease-in-out;
     overflow:hidden;
@@ -245,14 +240,14 @@ h2{
 #tfat_pill{
     background-image: linear-gradient(to bottom right, #FF6F61 40%, #FDD0CB 100%);
     position: absolute;
-    top:406.08px;
-    left:781.44px;
+    top:413.08px;
+    left:820.44px;
     z-index:2;
-    width:384px;
+    width:0;
     height:81px;
     transition: all 0.3s ease-in-out;
     overflow:hidden;
-    white-space:nowrap;
+    white-space:wrap;
 }
 #tfat_pill.active{
     height:81px;
@@ -261,16 +256,16 @@ h2{
 #frml_pill{
     background-image: linear-gradient(to bottom right, #E23B00 40%, #FFAC8F 100%);
     position: absolute;
-    top:581.76px;
-    left:706.56px;
+    top:589.76px;
+    left:678.56px;
     z-index:2;
-    width: 384px;
+    width: 0;
     height:81px;
     transition: all 0.3s ease-in-out;
     overflow:hidden;
     white-space:nowrap;
 }
-#frml_pill.active{
+.upgrade-pill.active{
     height:81px;
     width:384px;
 }
@@ -318,36 +313,35 @@ h2{
     cursor:pointer;
     transition: transform 0.3s ease;
 }
+
 </style>
 <script>
-let activeGroup = null; // Track the currently active group
+
+let activePill = null; // Track the currently active pill
 
 function upgradeClicked(groupName) {
   const svgGroups = document.querySelectorAll(".svgGroup");
-  const upgradePill = document.getElementById("upgrade_pill");
+  const upgradePills = document.querySelectorAll(".upgrade-pill");
 
-  // Reset any previously active group
-  if (activeGroup) {
-    activeGroup.style.transform = "none"; // Reset transformation
+  // Reset any previously active elements
+  if (activePill) {
+    activePill.classList.remove("active");
   }
+  svgGroups.forEach(group => group.style.transform = "none"); // Reset all SVG transforms
 
-  // Find the clicked group based on the groupName
+  // Find the clicked pill and corresponding group
+  const clickedPill = document.querySelector(`.upgrade-pill.${groupName}_pill`);
   const clickedGroup = document.querySelector(`.svgGroup.${groupName}`);
 
-  // Toggle active state and apply animation (replace with your desired animations)
-  if (clickedGroup) {
-    activeGroup = clickedGroup;
-    clickedGroup.style.transform = "translateX(150px) scale(1.5)"; // Example animation
+  // Activate the clicked pill and animate the group
+  if (clickedPill && clickedGroup) {
+    activePill = clickedPill;
+    activePill.classList.add("active");
+    clickedGroup.style.transform = "translateX(150px) scale(1.5)"; // Apply your transform
   }
-
-  // Hide the upgrade pill
-  upgradePill.classList.remove("active");
 }
 
-function toggleUpgrade() {
-  // You can implement functionality for the button click here
-  // (optional, if you want the button to trigger an upgrade)
-}
+
 
 
 
