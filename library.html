@@ -71,25 +71,25 @@
     <h1 class="title">AFTAC TRAINING</h1>
     <p class="p1">Standard Operation Procedures Links</p>
     <p class="p2">Click the icons on the right to display the links</p>
-    <div class="upgrade-pill myt_pill" id="myt_pill" onclick="upgradeClicked('mytGroup')">
+    <div class="upgrade-pill myt_pill" id="myt_pill">
         <h2>MyTraining</h2>
     </div>
-    <div class="upgrade-pill upgrade_pill" id="upgrade_pill" onclick="upgradeClicked('ugtGroup')">
+    <div class="upgrade-pill ugt_pill" id="upgrade_pill">
         <h2>Upgrade Training</h2>
     </div>
-    <div class="upgrade-pill tfat_pill" id="tfat_pill" onclick="upgradeClicked('tfatGroup')">
+    <div class="upgrade-pill tfat_pill" id="tfat_pill">
         <h2>Total Force Awareness Training</h2>
     </div>
-    <div class="upgrade-pill frml_pill" id="frml_pill" onclick="upgradeClicked('frmlGroup')">
+    <div class="upgrade-pill frml_pill" id="frml_pill">
         <h2>Formal Training</h2>
     </div>
-    <svg class="svgGroup ugtGroup" viewBox="0 0 146 145" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="upgradeClicked('ugtGroup')">
+    <svg class="svgGroup ugtGroup" viewBox="0 0 146 145" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="ugtGroup">
     	    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 72.5C0 32.459 32.68 0 73 0C113.32 0 146 32.459 146 72.5C146 112.541 113.32 145 73 145C32.68 145 0 112.541 0 72.5Z" fill="#D5D5D5"/>
     	    <path d="M54.25 102.833V95.25H91.75V102.833H54.25ZM69.25 87.6667V56.6698L59.5 66.4334L54.25 61.125L73 42.1666L91.75 61.125L86.5 66.4334L76.75 56.6698V87.6667H69.25Z" fill="#808080"/>
 	</g>
     </svg>
-    <svg class="svgGroup frmlGroup" id="frmlGroup" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="upgradeClicked('frmlGroup')">
+    <svg class="svgGroup frmlGroup" id="frmlGroup" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect fill="#F5F5F5"/>
         <g id="frml 1" clip-path="url(#clip0_0_1)">
             <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0 72C0 32.24 32.24 0 72 0C111.76 0 144 32.24 144 72C144 111.76 111.76 144 72 144C32.24 144 0 111.76 0 72Z" fill="#D5D5D5"/>
@@ -132,13 +132,13 @@
             </clipPath>
         </defs>
      </svg>
-     <svg class="svgGroup mytGroup" id="mytGroup"  viewBox="0 0 139 140" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="upgradeClicked('mytGroup')">
+     <svg class="svgGroup mytGroup" id="mytGroup"  viewBox="0 0 139 140" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="Vector">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 70C0 31.34 31.12 0 69.5 0C107.88 0 139 31.34 139 70C139 108.66 107.88 140 69.5 140C31.12 140 0 108.66 0 70Z" fill="#D5D5D5"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M77.4173 71.7205H53.0373L51.1558 80.7216H66.3369V107.35L76.3471 106.975C76.2841 98.2865 76.2211 89.5978 76.1582 80.9092L76.536 80.9138V80.7216H91.561L89.5681 71.908L77.4173 71.7205ZM71.2121 39.6536L63.5274 61.3362L71.46 56.2028L78.8969 61.3362L71.2121 39.6536ZM95.2595 17H86.3687L86.4745 17.0384L81.2363 17H44.5076L17 83.6589L40.2034 122H51.6417L57.8907 87.146H49.5046L45.146 113.118L26.3421 81.1589L49.0169 26.2941L90.9085 26.6015L112.809 80.3903L94.9342 113.272L89.939 87.146H85.3997L83.7614 87.3186L82.3135 87.2979L88.1605 121.949L88.0189 122H100.938L122 82.6711L95.2595 17Z" fill="#808080"/>
         </g>
     </svg>
-    <svg class="svgGroup tfatGroup" id="tfatGroup" viewBox="0 0 146 146" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="upgradeClicked('tfatGroup')">
+    <svg class="svgGroup tfatGroup" id="tfatGroup" viewBox="0 0 146 146" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="tfat">
             <g id="Vector">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 73C0 32.68 32.68 0 73 0C113.32 0 146 32.68 146 73C146 113.32 113.32 146 73 146C32.68 146 0 113.32 0 73Z" fill="#D5D5D5"/>
@@ -184,7 +184,7 @@ h1{
     text-align:center;
 }
 
-.pill{
+.upgrade-pill{
     background-color: white;
     box-shadow: 10px 15px 45px black inset;
     height: 81px;
@@ -221,7 +221,7 @@ h2{
     height:81px;
     width:384px;
 }
-#upgrade_pill{
+.ugt_pill{
     background-image: linear-gradient(to bottom right, #D2691E 40%, #FFB36D 100%);
     position: absolute;
     top:238.5px;
@@ -233,7 +233,7 @@ h2{
     overflow:hidden;
     white-space:nowrap;
 }
-#upgrade_pill.active{
+.ugt_pill.active{
     height:81px;
     width:384px;
 }
@@ -265,7 +265,7 @@ h2{
     overflow:hidden;
     white-space:nowrap;
 }
-.upgrade-pill.active{
+#frml_pill.active{
     height:81px;
     width:384px;
 }
@@ -317,32 +317,28 @@ h2{
 </style>
 <script>
 
-let activePill = null; // Track the currently active pill
+document.addEventListener('DOMContentLoaded', function() {
+    var svgGroups = document.querySelectorAll('.svgGroup');
+    svgGroups.forEach(function(svg) {
+        svg.addEventListener('click', function() {
+            var group = svg.classList[1]; // Get the class name that starts with 'svgGroup'
+            upgradeClicked(group);
+        });
+    });
+});
 
-function upgradeClicked(groupName) {
-  const svgGroups = document.querySelectorAll(".svgGroup");
-  const upgradePills = document.querySelectorAll(".upgrade-pill");
+function upgradeClicked(group) {
+    // Hide all pills
+    var pills = document.querySelectorAll('.upgrade-pill');
+    pills.forEach(function(pill) {
+        pill.classList.remove('active');
+    });
 
-  // Reset any previously active elements
-  if (activePill) {
-    activePill.classList.remove("active");
-  }
-  svgGroups.forEach(group => group.style.transform = "none"); // Reset all SVG transforms
-
-  // Find the clicked pill and corresponding group
-  const clickedPill = document.querySelector(`.upgrade-pill.${groupName}_pill`);
-  const clickedGroup = document.querySelector(`.svgGroup.${groupName}`);
-
-  // Activate the clicked pill and animate the group
-  if (clickedPill && clickedGroup) {
-    activePill = clickedPill;
-    activePill.classList.add("active");
-    clickedGroup.style.transform = "translateX(150px) scale(1.5)"; // Apply your transform
-  }
+    // Show the clicked pill
+    var pillId = '#' + group.substring(0, group.length - 5) + '_pill';
+    var activePill = document.querySelector(pillId);
+    activePill.classList.add('active');
 }
-
-
-
 
 
 </script>
